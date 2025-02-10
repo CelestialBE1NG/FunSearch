@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FunSearch</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f8f8;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .title {
+            font-size: 50px;
+            font-weight: bold;
+            color: #4285F4;
+            font-family: Arial, sans-serif;
+        }
+        .title span {
+            color: #EA4335;
+        }
+        input {
+            width: 300px;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="title">Fun<span>Search</span></div>
+    <div class="search-container">
+        <input type="text" id="searchBar" placeholder="Type a command...">
+    </div>
+    
+    <script>
+        document.getElementById('searchBar').addEventListener('keyup', function(event) {
+            if (event.key === 'Enter') {
+                let command = this.value.toLowerCase().trim();
+                executeCommand(command);
+                this.value = ''; // Clear input after command
+            }
+        });
+
+        function executeCommand(command) {
+            if (command === 'pen') {
+                document.body.style.cursor = 'crosshair'; // Temporary fix, since external cursor URL didn't work
+            } else if (command === 'fish') {
+                document.body.style.background = "url('fishh.jpeg') no-repeat center center fixed";
+                document.body.style.backgroundSize = "100% 100%";
+            } else if (command === 'reset') {
+                document.body.style.cursor = 'default';
+                document.body.style.background = '#f8f8f8';
+            }else if (command === 'free ram') { 
+                window.location.href = "https://freeram.com"; // Replace with actual URL
+            }else if (command === 'cheese') { 
+                document.body.style.background = "url('cheese.jpeg') no-repeat center center fixed";
+                document.body.style.backgroundSize = "100% 100%";
+            }else if (command === 'thanos') { 
+                document.body.style.cursor = "url('Infinity Gauntlet Link Select.cur'), auto";
+            }else if (command === 'rickroll') { 
+                let audio = new Audio('Mzg1ODMxNTIzMzg1ODM3_JzthsfvUY24.mp3');
+                audio.play();
+                setTimeout(() => {
+                audio.pause();
+                audio.currentTime = 0; // Reset the song to the beginning
+                }, 10000); // 10,000 milliseconds = 10 seconds
+            }else {
+                alert('Unknown command!');
+            }
+        }
+    </script>
+</body>
+</html>
